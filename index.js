@@ -14,7 +14,7 @@ const handlers = {
         this.emit(':tell', `Something went wrong. Sorry about that.`)
       }
     )
-  }
+  },
   "AboutIntent"() {
     this.emit(':tell', 'UK Bank Holidays tells you when the next bank holiday is in England and Wales.')
   },
