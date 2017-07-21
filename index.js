@@ -9,6 +9,7 @@ const handlers = {
     getNextBankHoliday().then(
       (holiday) => {
         const msg = `The next bank holiday in England and Wales is ${holiday.title} on ${holiday.formattedDate}. Enjoy!`
+        this.emit(':tell', msg)
       },
       (err) => {
         this.emit(':tell', `Something went wrong. Sorry about that.`)
@@ -36,8 +37,8 @@ const handlers = {
 }
 
 exports.handler = (event, context) => {
-  const alexa = Alexa.handler(event, context)
+  let alexa = Alexa.handler(event, context)
   alexa.APP_ID = appId
-  alexa.registerHandler(handlers)
+  alexa.registerHandlers(handlers)
   alexa.execute()
 }
