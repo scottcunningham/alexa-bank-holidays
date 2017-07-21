@@ -37,7 +37,7 @@ const handlers = {
 
 exports.handler = (event, context) => {
   const alexa = Alexa.handler(event, context)
-  alexa.appId = appId
+  alexa.APP_ID = appId
   alexa.registerHandler(handlers)
   alexa.execute()
 }
